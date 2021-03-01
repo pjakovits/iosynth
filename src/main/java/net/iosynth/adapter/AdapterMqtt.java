@@ -62,7 +62,7 @@ public class AdapterMqtt extends Thread {
 			connOpts.setCleanSession(true);
                         if(this.user != "") {
                                 connOpts.setUserName(this.user);
-                                connOpts.setPassword(this.pass.toCahrArray());
+                                connOpts.setPassword(this.pass.toCharArray());
                         }
 		} catch (MqttException me) {
 			logger.log(Level.SEVERE, me.toString(), me);
