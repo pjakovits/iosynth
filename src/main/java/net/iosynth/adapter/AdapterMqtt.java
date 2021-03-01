@@ -19,6 +19,8 @@ public class AdapterMqtt extends Thread {
 	// Adapter default configuration
 	private String uri;
 	private String topic;
+	private String user;
+	private String pass;
 	private int    qos;
 	private String clientId;
 	
@@ -39,6 +41,8 @@ public class AdapterMqtt extends Thread {
 		// Adapter default configuration
     	this.uri   = cfg.uri;
     	this.topic = cfg.topic;
+        this.user = cfg.user;
+        this.pass = cfg.pass;
 		this.qos   = cfg.qos > 2 || cfg.qos < 0 ? 0 : cfg.qos; 
 		this.clientId = UUID.randomUUID().toString();
 		setOptions(msgQueue);
@@ -56,6 +60,10 @@ public class AdapterMqtt extends Thread {
 			sampleClient = new MqttClient(uri, clientId, persistence);
 			connOpts = new MqttConnectOptions();
 			connOpts.setCleanSession(true);
+                        if(this.user != "") {
+                                connOpts.setUserName(this.user);
+                                connOpts.setPassword(this.pass);
+                        }
 		} catch (MqttException me) {
 			logger.log(Level.SEVERE, me.toString(), me);
 			throw me;

@@ -55,6 +55,8 @@ Example **config-mqtt.json** configuration:
 | `clients` | Number of MQTT clients. Each client sends the data from selected devices only. | 
 | `qos`      | Quality of Service: 0, 1, 2    |
 | `seed` | Random Generator seed used to create reproducible scenarios. It can be omitted in other cases.|
+| `user` | mqtt access user if necessary.|
+| `pass` | mqtt access password if necessary.|
 
 ### devices.json
 devices.json - configuration is a json file containing list of device definitions:

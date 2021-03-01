@@ -15,6 +15,8 @@ public class ConfigMqtt {
      */
     protected String uri;
     protected String topic;
+    protected String user;
+    protected String pass;
     protected int qos;
     protected UUID uuid;
     /**
@@ -33,6 +35,8 @@ public class ConfigMqtt {
     	// Adapter default configuration.
 		this.uri          = "tcp://localhost:1883";
 		this.topic        = "iosynth";
+                this.user = "";
+                this.pass = "";
     	this.qos          = 0;
     	this.clients      = 1;
     	this.seed         = 2052703995999047696L; // magic number
