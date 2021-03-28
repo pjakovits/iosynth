@@ -9,7 +9,7 @@ package net.iosynth.sensor;
  */
 public class SensorDoubleIncrement extends Sensor {
 	private double min, max;
-	private double state, step
+	private double state, step;
 
 
 	/**
