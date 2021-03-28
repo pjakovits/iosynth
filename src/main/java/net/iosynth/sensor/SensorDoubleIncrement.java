@@ -9,6 +9,7 @@ package net.iosynth.sensor;
  */
 public class SensorDoubleIncrement extends Sensor {
 	private double min, max;
+	private double state, step
 
 
 	/**
@@ -18,7 +19,28 @@ public class SensorDoubleIncrement extends Sensor {
 		this.format = "%.4f";
 		this.min = 0.0;
 		this.max = 1.0;
+		this.state = 0.0;
+		this.step = 1.0;
 	}
+	
+	/* (non-Javadoc)
+	 * @see net.iosynth.sensor.Sensor#step(long)
+	 */
+	@Override
+	public void step(long step) {
+		state = state + rnd.nextDouble()*(5-2)+2;
+		if(state > max){
+			state = max;
+		}
+		if(state < min){
+			state = min;
+		}
+	}
+
+	/**
+	 * @return Sensor value
+	 */
+
 
 	/* (non-Javadoc)
 	 * @see net.iosynth.sensor.Sensor#replicate()
@@ -26,7 +48,6 @@ public class SensorDoubleIncrement extends Sensor {
 	@Override
 	public void replicate() {
 		// nothing to do
-		this.min = getValue() + 1;
 	}
 
 	/*
@@ -41,21 +62,8 @@ public class SensorDoubleIncrement extends Sensor {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see net.iosynth.sensor.Sensor#step(long)
-	 */
-	@Override
-	public void step(long step) {
-		// nothing to do
-	}
-
-	/**
-	 * @return Sensor value
-	 */
 	public double getValue(){
-		double step = rnd.nextDouble()*(8-2)+2;
-		double val = min + step;
-		return val;
+		return state;
 	}
 
 	@Override
