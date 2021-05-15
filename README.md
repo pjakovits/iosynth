@@ -448,6 +448,21 @@ Values between "min" and "max" from Uniform random generator.
 {"type":"double_uniform", "name":"state", "min":23, "max":34}
 ```
 
+**`double_increment`**
+
+Values between "min" and "max" in a linearly increasing manner.
+
+```json
+{"type":"double_uniform", "name":"state", "min":23, "max":34}
+```
+
+**`double_decrement`**
+
+Values between "min" and "max" in a linearly decreasing manner.
+
+```json
+{"type":"double_uniform", "name":"state", "min":23, "max":34}
+```
 
 **`double_normal`**
 
