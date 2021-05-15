@@ -7,33 +7,36 @@ package net.iosynth.sensor;
  * @author afsana
  *
  */
-public class SensorDoubleIncrement extends Sensor {
+public class SensorDoubleDecrement extends Sensor {
 	private double min, max,state;
+        //public double state = max;
 	private double step;
 
 
 	/**
 	 *
 	 */
-	public SensorDoubleIncrement() {
+	public SensorDoubleDecrement() {
 		this.format = "%.4f";
 		this.min = 0.0;
 		this.max = 1.0;
                 this.step  = 1;
-		this.state = 0.0;
+		this.state = max;
 	}
 	/* (non-Javadoc)
 	 * @see net.iosynth.sensor.Sensor#step(long)
 	 */
 	@Override
 	public void step(long step) {
-		state = state + rnd.nextDouble()*(2.5-0.5)+0.5;
+                //state = max;
+		state = state - (rnd.nextDouble()*(2.5-0.5)+0.5);
 		if(state > max){
 			state = max;
 		}
 		if(state < min){
 			state = min;
 		}
+
 	}
 
 	/**
@@ -56,9 +59,9 @@ public class SensorDoubleIncrement extends Sensor {
 	 */
 	@Override
 	public void checkParameters() {
-		if (min >= max) {
+		/*if (min >= max) {
 			max = min + 1;
-		}
+		}*/
 	}
 
 
