@@ -9,8 +9,8 @@ package net.iosynth.sensor;
  */
 public class SensorDoubleDecrement extends Sensor {
 	private double min, max,state;
-        //public double state = max;
 	private double step;
+        private double slope:
 
 
 	/**
@@ -22,6 +22,7 @@ public class SensorDoubleDecrement extends Sensor {
 		this.max = 1.0;
                 this.step  = 1;
 		this.state = max;
+                this.slope = 1.0;
 	}
 	/* (non-Javadoc)
 	 * @see net.iosynth.sensor.Sensor#step(long)
@@ -29,7 +30,7 @@ public class SensorDoubleDecrement extends Sensor {
 	@Override
 	public void step(long step) {
                 //state = max;
-		state = state - (rnd.nextDouble()*(2.5-0.5)+0.5);
+		state = state - (rnd.nextDouble()*(slope-0)+0);
 		if(state > max){
 			state = max;
 		}
