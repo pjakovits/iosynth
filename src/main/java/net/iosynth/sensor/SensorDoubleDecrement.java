@@ -10,7 +10,7 @@ package net.iosynth.sensor;
 public class SensorDoubleDecrement extends Sensor {
 	private double min, max,state;
 	private double step;
-        private double slope:
+        private double slope;
 
 
 	/**
