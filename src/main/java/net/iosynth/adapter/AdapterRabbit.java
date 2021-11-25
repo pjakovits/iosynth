@@ -43,7 +43,7 @@ public class AdapterRabbit extends Thread {
     	this.uri      = cfg.uri;
     	this.exchange = cfg.exchange;
     	this.topic    = cfg.topic;
-	this.username = cfg.token;
+	this.token    = cfg.token;
 	this.username = cfg.username;
 
 		setOptions(msgQueue);
@@ -58,7 +58,7 @@ public class AdapterRabbit extends Thread {
 		this.msgQueue = msgQueue;
 		factory = new ConnectionFactory();
 		factory.setUsername(this.username);
-		factory.setPassword(this.username);
+		factory.setPassword(this.token);
 		try {
 			factory.setUri(this.uri);
 
