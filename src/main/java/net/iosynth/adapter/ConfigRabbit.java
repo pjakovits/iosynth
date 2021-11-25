@@ -15,6 +15,8 @@ public class ConfigRabbit {
     protected String topic;
     protected int qos;
     protected UUID uuid;
+    protected String username;
+    protected String token;
     protected String session;
     /**
      * 
@@ -35,6 +37,7 @@ public class ConfigRabbit {
     	this.topic        = "device";
     	this.clients      = 1;
     	this.seed         = 2052703995999047696L; // magic number
+	
     }
 
 }

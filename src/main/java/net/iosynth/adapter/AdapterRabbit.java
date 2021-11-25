@@ -20,6 +20,8 @@ public class AdapterRabbit extends Thread {
 	private String uri;
 	private String exchange;
 	private String topic;
+	private String username;
+	private String token;
 	
 	
     
@@ -41,6 +43,9 @@ public class AdapterRabbit extends Thread {
     	this.uri      = cfg.uri;
     	this.exchange = cfg.exchange;
     	this.topic    = cfg.topic;
+	this.username = cfg.token;
+	this.username = cfg.username;
+
 		setOptions(msgQueue);
 		start();
     }
@@ -52,8 +57,11 @@ public class AdapterRabbit extends Thread {
 	public void setOptions(BlockingQueue<Message> msgQueue) throws URISyntaxException {
 		this.msgQueue = msgQueue;
 		factory = new ConnectionFactory();
+		factory.setUsername(this.username);
+		factory.setPassword(this.username);
 		try {
-			factory.setUri(uri);
+			factory.setUri(this.uri);
+
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, e.toString(), e);
 			throw new URISyntaxException(uri, e.toString());
@@ -77,6 +85,8 @@ public class AdapterRabbit extends Thread {
 					logger.info("queue: " + msgQueue.size());
 				}
 				channel.basicPublish(exchange, topic + "." + msg.getTopic(), null, msg.getMsg().getBytes());
+				logger.info("Sending to: exchange: " + exchange + "    topic: " + topic + "." + msg.getTopic());
+
 				k++;
 			}
 		} catch (Exception e) {
