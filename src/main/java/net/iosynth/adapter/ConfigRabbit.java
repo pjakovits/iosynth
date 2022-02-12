@@ -37,6 +37,8 @@ public class ConfigRabbit {
     	this.topic        = "device";
     	this.clients      = 1;
     	this.seed         = 2052703995999047696L; // magic number
+        this.username     = "user";
+        this.token        = "pass";
 	
     }
 

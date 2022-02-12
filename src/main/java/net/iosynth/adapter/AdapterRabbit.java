@@ -75,9 +75,10 @@ public class AdapterRabbit extends Thread {
 			connection = factory.newConnection();
 			logger.info("Connected");
 			channel = connection.createChannel();
+			logger.info("Channel created");
 			channel.exchangeDeclare(exchange, "topic");
 			//channel.queueDeclare(queue, false, false, false, null);
-			
+			logger.info("Starting sending");
 			long k = 0;
 			while (true) {
 				final Message msg = msgQueue.take();
