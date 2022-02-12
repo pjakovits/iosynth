@@ -26,6 +26,8 @@ import net.iosynth.sensor.SensorDevUUID;
 import net.iosynth.sensor.SensorString;
 import net.iosynth.sensor.SensorDoubleCycle;
 import net.iosynth.sensor.SensorDoubleExponential;
+import net.iosynth.sensor.SensorDoubleIncrement;
+import net.iosynth.sensor.SensorDoubleDecrement;
 import net.iosynth.sensor.SensorDoubleNormal;
 import net.iosynth.sensor.SensorDoubleOscillator;
 import net.iosynth.sensor.SensorIntCycle;
@@ -34,6 +36,7 @@ import net.iosynth.sensor.SensorDevEpoch;
 import net.iosynth.sensor.SensorIPv4;
 import net.iosynth.sensor.SensorDoubleUniform;
 import net.iosynth.sensor.SensorDoubleWalk;
+import net.iosynth.sensor.SensorDoubleMean;
 import net.iosynth.sensor.SensorIntUniform;
 import net.iosynth.sensor.SensorIntWalk;
 import net.iosynth.sensor.SensorMAC48;
@@ -87,8 +90,10 @@ public class DevicesFromJson {
 		sensorAdapter.registerSubtype(SensorDoubleUniform.class,       "double_uniform");
 		sensorAdapter.registerSubtype(SensorDoubleNormal.class,        "double_normal");
 		sensorAdapter.registerSubtype(SensorDoubleExponential.class,   "double_exp");
+		sensorAdapter.registerSubtype(SensorDoubleIncrement.class,   "double_increment");
+		sensorAdapter.registerSubtype(SensorDoubleDecrement.class,   "double_decrement");
 		sensorAdapter.registerSubtype(SensorDoubleOscillator.class,    "double_oscillator");
-		
+		sensorAdapter.registerSubtype(SensorDoubleMean.class,    "double_mean");
 		sensorAdapter.registerSubtype(SensorIntCycle.class,        "int_cycle");
 		sensorAdapter.registerSubtype(SensorIntWalk.class,         "int_walk");
 		sensorAdapter.registerSubtype(SensorIntUniform.class,      "int_uniform");
